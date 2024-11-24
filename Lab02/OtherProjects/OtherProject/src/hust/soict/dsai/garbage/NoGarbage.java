@@ -5,7 +5,6 @@ public class NoGarbage {
         long startTime = System.currentTimeMillis();
         StringBuffer outputStringBuffer = new StringBuffer();
         
-        // Create the same amount of text using StringBuffer
         for (int i = 0; i < 50000; i++) {
             outputStringBuffer.append("ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!@#$%^&*()")
                             .append("QWERTYUIOPASDFGHJKLZXCVBNM0987654321~!@#$%^&*")
