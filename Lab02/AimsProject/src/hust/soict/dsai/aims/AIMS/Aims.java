@@ -1,4 +1,7 @@
-package AIMS;
+package hust.soict.dsai.aims.AIMS;
+
+import hust.soict.dsai.aims.cart.Cart.Cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc.DigitalVideoDisc;
 
 public class Aims {
 
@@ -16,14 +19,14 @@ public class Aims {
 				"Animation", 18.99f);
 		anOrder.addDigitalVideoDisc(dvd3);
 		
-		// Test remove
-		anOrder.removeDigitalVideoDisc(dvd3);
-		anOrder.removeDigitalVideoDisc(dvd2);
-		anOrder.removeDigitalVideoDisc(dvd1);
-//		anOrder.addDigitalVideoDisc(dvd3);
-		
+		anOrder.printCart();
 		
 		System.out.println("Total Cost is: " + anOrder.totalCost());
+		anOrder.searchById(1);
+        anOrder.searchById(3); // ID not found
+
+        anOrder.searchByTitle("Aladdin");
+        anOrder.searchByTitle("Frozen"); 
 
 	}
 
