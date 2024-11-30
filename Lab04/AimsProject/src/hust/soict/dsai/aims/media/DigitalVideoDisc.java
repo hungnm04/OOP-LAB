@@ -1,88 +1,40 @@
 package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc extends Media implements Playable  {
-	private String title;
-	private String category;
-	private String director;
-	private int length;
-	private float cost;
-	private int id;
+public class DigitalVideoDisc extends Disc implements Playable {
 
-    private static int nbDigitalVideoDiscs = 0;
-	
-	public DigitalVideoDisc(String title) {
-		this.title = title;
-	}
-	
-	public DigitalVideoDisc(String title, String category, float cost) {
-		this.title = title;
-		this.category = category;
-		this.cost = cost;
-	}
-	public DigitalVideoDisc(String title, String category, String director, float cost) {
-		this.title = title;
-		this.category = category;
-		this.director = director;
-		this.cost = cost;
-	}
-	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        this.title = title;
-        this.category = category;
-        this.director = director;
-        this.length = length;
-        this.cost = cost;
-
-        nbDigitalVideoDiscs++;
-        this.id = nbDigitalVideoDiscs;
+    public String getType() {
+        return "DVD";
     }
 
-	public String getTitle() {
-		return title;
-	}
-
-	public int getId(){
-		return id;
-	}
-	
-	public String getCategory() {
-		return category;
-	}
-	public String getDirector() {
-		return director;
-	}
-	public int getLength() {
-		return length;
-	}
-	public float getCost() {
-		return cost;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public void play() {
-		System.out.println("Playing DVD: " + this.getTitle());
-		System.out.println("DVD length: " + this.getLength());
-	}
-
-
-	@Override
-    public String toString() {
-        return "DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + " $";
-    }
-    public boolean isMatch(String title) {
-        return this.title.equalsIgnoreCase(title);
+    public String getDetails() {
+        return "Product ID: " + this.getId()
+                + "\n\tTitle: " + this.getTitle()
+                + "\n\tCategory: " + this.getCategory()
+                + "\n\tDirector: " + this.getDirector()
+                + "\n\tLength: " + this.getLength() + " minutes"
+                + "\n\tPrice: $" + this.getCost();
     }
 
-	@Override
-	public String getType() {
-		return "";
-	}
+    public void play() {
+        if (this.getLength() <= 0) {
+            System.out.println("ERROR: DVD length is non-positive!");
+        } else {
+            System.out.println("Playing DVD: " + this.getTitle());
+            System.out.println("DVD length: " + this.getLength() + " minutes");
+        }
+    }
 
-	@Override
-	public String getDetails() {
-		return "";
-	}
+    public DigitalVideoDisc(String title) {
+        super(title);
+    }
 
+    public DigitalVideoDisc(String title, String category, float cost) {
+        super(title, category, cost);
+    }
+
+    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+        super(title, category, cost);
+        this.setDirector(director);
+        this.setLength(length);
+    }
 }

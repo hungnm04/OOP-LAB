@@ -3,7 +3,6 @@ package hust.soict.dsai.aims.AIMS;
 import hust.soict.dsai.aims.cart.Cart.Cart;
 import hust.soict.dsai.aims.media.*;
 import hust.soict.dsai.aims.store.Store.Store;
-
 import java.util.Scanner;
 
 public class Aims {
@@ -333,13 +332,13 @@ public class Aims {
         while (choice < min || choice > max) {
             if (scan.hasNextInt()) {
                 choice = scan.nextInt();
-                scan.nextLine(); // Consume newline
+                scan.nextLine(); 
                 if (choice < min || choice > max) {
                     System.out.println("Invalid choice. Please enter a number between " + min + " and " + max);
                 }
             } else {
                 System.out.println("Invalid input. Please enter a number between " + min + " and " + max);
-                scan.nextLine(); // Consume invalid input
+                scan.nextLine(); 
             }
         }
         return choice;

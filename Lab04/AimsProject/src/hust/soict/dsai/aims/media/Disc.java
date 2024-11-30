@@ -5,7 +5,6 @@ public abstract class Disc extends Media {
     private int length;
 
     public Disc(String title) {
-        // TODO Auto-generated constructor stub
     }
     public Disc(String director, String category, String title, float cost){
         super(category,title,cost);

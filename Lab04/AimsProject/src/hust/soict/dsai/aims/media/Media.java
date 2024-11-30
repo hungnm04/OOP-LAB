@@ -13,7 +13,6 @@ public abstract class Media {
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
     public Media() {
-        // TODO Auto-generated constructor stub
     }
 
     public Media(int id, String title, String category, float cost) {
