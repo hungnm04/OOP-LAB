@@ -23,7 +23,6 @@ public class MediaStore extends VBox {
         this.cart = cart;
         this.storeScreen = storeScreen;
 
-        // Set alignment and spacing
         this.setAlignment(Pos.CENTER);
         this.setSpacing(10);
         this.setStyle("-fx-border-color: black; -fx-padding: 10;");
