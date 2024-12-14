@@ -44,7 +44,6 @@ public class StoreScreen extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        // Add listener to update the grid when store items change
         store.getItemsInStore().addListener((ListChangeListener<Media>) change -> {
             mainLayout.setCenter(createCenter());
         });
@@ -60,10 +59,8 @@ public class StoreScreen extends Application {
     private MenuBar createMenuBar(Stage stage) {
         MenuBar menuBar = new MenuBar();
 
-        // Options Menu
         Menu optionsMenu = new Menu("Options");
 
-        // Update Store SubMenu
         Menu updateStoreMenu = new Menu("Update Store");
         MenuItem addBook = new MenuItem("Add Book");
         addBook.setOnAction(e -> {
@@ -97,7 +94,6 @@ public class StoreScreen extends Application {
 
         updateStoreMenu.getItems().addAll(addBook, addCD, addDVD);
 
-        // View Cart MenuItem
         MenuItem viewCart = new MenuItem("View Cart");
         viewCart.setOnAction(e -> {
             CartScreen cartScreen = new CartScreen(cart);

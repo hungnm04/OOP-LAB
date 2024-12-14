@@ -10,9 +10,6 @@ public class SwingAccumulator extends JFrame {
     private JTextField tfOutput;
     private int sum = 0;
 
-    // Accumulated sum, initialized to 0
-
-    // Constructor to set up the GUI components and event handlers
     public SwingAccumulator() {
         Container cp = getContentPane();
         cp.setLayout(new GridLayout(2, 2));
@@ -36,8 +33,6 @@ public class SwingAccumulator extends JFrame {
     public static void main(String[] args) {
         new SwingAccumulator();
     }
-
-    // Private inner class for handling TextField input events
     private class TFInputListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent evt) {

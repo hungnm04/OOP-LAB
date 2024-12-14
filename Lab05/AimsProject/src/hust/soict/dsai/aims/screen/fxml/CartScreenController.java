@@ -60,7 +60,6 @@ public class CartScreenController {
     }
 
     private void initialize() {
-        // Set up columns in the table
         colMediaTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colMediaCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         colMediaCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
@@ -94,23 +93,23 @@ public class CartScreenController {
     }
 
     private void showFilteredMedia(String filter) {
-        if (filter == null || filter.isEmpty()) {
-            filteredData.setPredicate(media -> true);
-        } else {
-            filteredData.setPredicate(media -> {
-                if (radioBtnFilterId.isSelected()) {
-                    String idStr = String.valueOf(media.getId());
-                    return idStr.startsWith(filter);
-                } else if (radioBtnFilterTitle.isSelected()) {
-                    String title = media.getTitle();
-                    if (title == null) {
-                        return false;
-                    }
-                    return title.toLowerCase().startsWith(filter.toLowerCase());
+        filteredData.setPredicate(media -> {
+            if (filter == null || filter.isEmpty()) {
+                return true;
+            }
+
+            if (radioBtnFilterId.isSelected()) {
+                String idStr = String.valueOf(media.getId());
+                return idStr.startsWith(filter);
+            } else if (radioBtnFilterTitle.isSelected()) {
+                String title = media.getTitle();
+                if (title == null) {
+                    return false;
                 }
-                return false;
-            });
-        }
+                return title.toLowerCase().startsWith(filter.toLowerCase());
+            }
+            return false;
+        });
     }
 
     private void updateButtonBar(Media media) {
